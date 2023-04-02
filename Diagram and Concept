@@ -1,0 +1,31 @@
+      +-----------------------+                +------------------------+
+      | Serviço de catálogo   |                | Serviço de pagamentos   |
+      |                       |                |                         |
+      | +-------------------+ |                | +--------------------+ |
+      | |                   | |   API RESTful | |                    | |
+      | |    Banco de dados | | -------------> |  Gateway de pagamentos| |
+      | |                   | | <------------- |                    | |
+      | +-------------------+ |                | +--------------------+ |
+      +-----------------------+                +------------------------+
+                         ^                                  |
+                         |                                  |
+                         |                                  |
+      +-----------------------+                 +------------------------+
+      | Serviço de carrinho   |                 | Serviço de notificações|
+      |                       |                 |                        |
+      | +-------------------+ |                 | +--------------------+ |
+      | |                   | |   API RESTful  | |                    | |
+      | |    Banco de dados | | --------------> |    Email service     | |
+      | |                   | | <-------------- |                    | |
+      | +-------------------+ |                 | +--------------------+ |
+      +-----------------------+                 +------------------------+
+
+Diagrama sobre microserviços.
+
+Microsserviços são uma arquitetura de software que consiste em dividir um sistema em pequenos serviços independentes e altamente coesos, 
+que se comunicam entre si através de interfaces bem definidas. Cada serviço é responsável por uma única funcionalidade do sistema, 
+e pode ser desenvolvido, testado, implantado e escalado de forma independente dos outros serviços.
+
+Cada microsserviço pode ser implementado em uma tecnologia diferente, e pode ser implantado em um ambiente de execução diferente. 
+Isso permite que os desenvolvedores escolham as melhores ferramentas para cada tarefa e que a infraestrutura possa ser dimensionada de forma mais eficiente, 
+já que cada serviço pode ser escalado individualmente, de acordo com a sua demanda.
