@@ -1,4 +1,5 @@
-﻿using Api.Enum;
+﻿using Api.Constants;
+using Api.Enum;
 
 namespace Api.Application
 {
@@ -6,16 +7,16 @@ namespace Api.Application
     {
         public string ValidateInput(CreditDTOInput creditDTO)
         {
-            if (creditDTO.CreditValue > 1_000_000)
+            if (creditDTO.CreditValue > Constant.MAX_CREDIT_VALUE)
                 return "Recusado";
 
-            if (creditDTO.InstallmentsQuantity < 5 || creditDTO.InstallmentsQuantity > 72)
+            if (creditDTO.InstallmentsQuantity < Constant.MIN_INSTALLMENTS_QUANTITY || creditDTO.InstallmentsQuantity > Constant.MAX_INSTALLMENTS_QUANTITY)
                 return "Recusado";
 
-            if (creditDTO.CreditType == ECredit.Juridica && creditDTO.CreditValue < 15_000)
+            if (creditDTO.CreditType == ECredit.Juridica && creditDTO.CreditValue < Constant.MIN_LEGAL_RELEASE)
                 return "Recusado";
 
-            if (Math.Abs((DateTime.Now - creditDTO.DueDate).TotalDays) < 15 || Math.Abs((DateTime.Now - creditDTO.DueDate).TotalDays) > 40)
+            if (Math.Abs((DateTime.Now - creditDTO.DueDate).TotalDays) < Constant.MIN_DUEDATE || Math.Abs((DateTime.Now - creditDTO.DueDate).TotalDays) > Constant.MAX_DUEDATE)
                 return "Recusado";
 
             return "Aprovado";
